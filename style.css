@@ -1,0 +1,204 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caesar+Dressing&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Root Variables */
+:root {
+  --primary-color: #f9fafb;
+  --secondary-color: #488b0d;
+  --font-size-base: 16px;
+  --font-size-title: 48px;
+  --font-size-sub: 36px;
+  --font-size-section: 28px;
+  --font-family: "Inter", sans-serif;
+}
+
+/* Global Styles */
+html {
+  font-size: 100%;
+  font-weight: 200;
+  height: 100%;
+}
+
+body {
+  font-size: var(--font-size-base);
+  font-family: var(--font-family);
+  color: #333;
+  background-color: var(--primary-color);
+}
+
+main {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 1fr 2fr;
+}
+
+a {
+  color: var(--secondary-color);
+  text-decoration: none;
+}
+
+form {
+  display: grid;
+  grid-template-columns: 30% 30%;
+  row-gap: 20px;
+  column-gap: 40px;
+  justify-content: start;
+}
+
+.left-side {
+  background-image: url(background-green.jpg);
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.banner-logo {
+  background-color: rgba(126, 126, 126, 0.24);
+  backdrop-filter: blur(2px);
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  padding: 20px;
+  align-items: center;
+}
+
+.title-logo {
+  font-family: "Caesar Dressing", system-ui;
+  font-weight: 400;
+  font-size: 56px;
+  color: white;
+  letter-spacing: 10px;
+}
+
+.right-side {
+  background-color: var(--primary-color);
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+.heading {
+  padding-left: 30px;
+  max-width: 80%;
+}
+
+.heading > *:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.form-section {
+  margin-top: 40px;
+  background-color: rgb(255, 255, 255);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 0 10px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.form-group:last-child {
+  gap: 20px;
+}
+
+label {
+  font-weight: 400;
+  font-size: var(--font-size-base);
+  letter-spacing: 2px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  width: 100%;
+  font-size: var(--font-size-base);
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus {
+  border-color: #488b0d; /* Change border color on focus */
+  outline: none; /* Remove default outline */
+  box-shadow: 0 0 5px rgba(0, 255, 0, 0.5); /* Add subtle glow */
+}
+
+input[type="submit"] {
+  width: 100%;
+  background-color: var(--secondary-color);
+  font-size: var(--font-size-base);
+  color: var(--primary-color);
+  text-align: center;
+  font-weight: bold;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: border-color 0.3s ease, background-color 0.5s ease;
+}
+
+input[type="submit"]:hover {
+  box-shadow: 0 0 5px rgba(0, 255, 0, 0.5); /* Add subtle glow */
+  border: 1px solid var(--secondary-color);
+  background-color: white;
+  color: var(--secondary-color);
+}
+
+input[type="password"]:invalid {
+  border-color: #ee0101; /* Change border color on focus */
+  outline: none; /* Remove default outline */
+  box-shadow: 0 0 5px rgba(255, 6, 6, 0.5); /* Add subtle glow */
+}
+
+.error-message {
+  display: none;
+  font-size: 12px;
+  font-weight: bold;
+  color: #ee0101;
+}
+
+input[type="password"]:invalid + .error-message {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  form {
+    grid-template-columns: 1fr;
+  }
+  .right-side {
+    overflow-y: auto;
+    height: 100%;
+    justify-content: start;
+    padding: 20px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  main {
+    grid-template-columns: none;
+    grid-template-rows: 0.5fr 2fr;
+    height: auto;
+  }
+
+  .right-side {
+    overflow-y: hidden;
+  }
+}
